@@ -16,7 +16,7 @@ RED="\033[31m"
 
 function pull_sail() {
   mkdir -p "$HOME/.sail/.source/"
-  git clone -b v1 git@github.com:bodyshopbidsdotcom/sail.git "$HOME/.sail/.source/"
+  git clone git@github.com:bodyshopbidsdotcom/sail.git "$HOME/.sail/.source/"
 }
 
 function install() {
