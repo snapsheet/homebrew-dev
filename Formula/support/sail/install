@@ -22,6 +22,12 @@ function pull_sail() {
 function install() {
   if pull_sail ; then
     ln -s "$HOME/.sail/.source/support/sail_exec" /usr/local/bin/sail
+
+    unzip "$HOME/.sail/.source/support/mutagen.zip" -d "$HOME/.sail/.source/"
+    arch=$(uname -m)
+    ln -s "$HOME/.sail/.source/support/mutagen-$arch" /usr/local/bin/mutagen
+    ln -s "$HOME/.sail/.source/support/mutagen-compose-$arch" /usr/local/bin/mutagen-compose
+
     echo -e "${BLUE}sail: ${GREEN}Success! ${NC}"
   fi
 }
