@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+####################################
+# general settings
+####################################
+WHITE="\033[1;37m"
+GREEN="\033[32m"
+BLUE="\033[34m"
+CYAN="\033[36m"
+NC="\033[0m"
+RED="\033[31m"
+####################################
+
+####################################
+# functions
+####################################
+
+function pull_sail() {
+  mkdir -p "$HOME/.sail/.source/"
+  git clone -b circleci git@github.com:bodyshopbidsdotcom/sail.git "$HOME/.sail/.source/"
+}
+
+function install() {
+  if pull_sail ; then
+    ln -s "$HOME/.sail/.source/support/sail_exec" /usr/local/bin/sail
+    echo -e "${BLUE}sail: ${GREEN}Success! ${NC}"
+  fi
+}
+install
