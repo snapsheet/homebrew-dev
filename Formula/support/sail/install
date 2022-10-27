@@ -10,18 +10,22 @@ NC="\033[0m"
 RED="\033[31m"
 ####################################
 
+SAIL_HOME="$HOME/.sail"
+UPDATE_CHECK_TRACK_FILENAME="$SAIL_HOME/update-last-check"
+
 ####################################
 # functions
 ####################################
 
 function pull_sail() {
-  mkdir -p "$HOME/.sail/.source/"
-  git clone git@github.com:bodyshopbidsdotcom/sail.git "$HOME/.sail/.source/"
+  mkdir -p "$SAIL_HOME/.source/"
+  git clone git@github.com:bodyshopbidsdotcom/sail.git "$SAIL_HOME/.source/"
 }
 
 function install() {
   if pull_sail ; then
-    sudo ln -s "$HOME/.sail/.source/support/sail_exec" /usr/local/bin/sail
+    sudo ln -s "$SAIL_HOME/.source/support/sail_exec" /usr/local/bin/sail
+    touch "$UPDATE_CHECK_TRACK_FILENAME"
     echo -e "${BLUE}sail: ${GREEN}Success! ${NC}"
   fi
 }
