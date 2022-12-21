@@ -19,7 +19,7 @@ UPDATE_CHECK_TRACK_FILENAME="$SAIL_HOME/update-last-check"
 
 function pull_sail() {
   mkdir -p "$SAIL_HOME/.source/"
-  git clone git@github.com:bodyshopbidsdotcom/sail.git "$SAIL_HOME/.source/"
+  git clone -b main --single-branch git@github.com:bodyshopbidsdotcom/sail.git "$SAIL_HOME/.source/"
 }
 
 function install() {
