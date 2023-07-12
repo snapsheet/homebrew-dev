@@ -30,7 +30,7 @@ function install() {
   fi
 }
 
-if [ "$(groups | grep -Ew "sudo|wheel|admin" >/dev/null)" ]; then
+if [ "$(groups | grep -Ew "sudo|wheel|admin|root")" ]; then
   install
 else
   echo -e "${BLUE}sail: ${RED}You don't have local admin on this machine. Send IT a message in the #sail channel or submit a ticket! ${NC}"
